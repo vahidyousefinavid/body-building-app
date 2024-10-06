@@ -1,6 +1,10 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
+import Navbar from '@/components/navbar'
+import localFont from 'next/font/local'
+import { ThemeConfig } from '@/@core/theme/ThemeComponent'
 
+const myFont = localFont({ src: '../../public/fonts/IRANSansWeb.woff2', display: 'swap' })
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -11,7 +15,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body dir='rtl' className={myFont.className}>
+          <Navbar />
+          {children}
+      </body>
     </html>
   )
 }
